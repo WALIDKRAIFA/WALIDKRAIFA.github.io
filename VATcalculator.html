@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VAT Calculator</title>
+</head>
+<body>
+  <h1>VAT Calculator</h1>
+  <label for="price">Price:</label><br>
+  <input type="text" id="price" name="price"><br>
+  <button onclick="addVAT()">Add VAT</button>
+  <button onclick="removeVAT()">Remove VAT</button>
+  <br><br>
+  <label for="vat">VAT:</label><br>
+  <input type="text" id="vat" name="vat" disabled><br>
+  <script>
+    const VAT_RATE = 0.2; // VAT rate is 20%
+
+    function addVAT() {
+      // Get the price from the input field
+      const price = document.getElementById("price").value;
+
+      // Calculate the VAT
+      const vat = price * VAT_RATE;
+
+      // Display the VAT
+      document.getElementById("vat").value = vat.toFixed(2);
+    }
+
+    function removeVAT() {
+      // Get the price from the input field
+      const price = document.getElementById("price").value;
+
+      // Calculate the price without VAT
+      const priceWithoutVAT = price / (1 + VAT_RATE);
+
+      // Display the price without VAT
+      document.getElementById("price").value = priceWithoutVAT.toFixed(2);
+    }
+  </script>
+</body>
+</html>
